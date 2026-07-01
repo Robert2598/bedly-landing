@@ -1,0 +1,149 @@
+.hero {
+  position: relative;
+  background: var(--grad-sunset);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 70px var(--side-pad) 96px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.copy {
+  flex: 1 1 440px;
+  min-width: 300px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  padding: 7px 15px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #fff;
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(40px, 5.4vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -1.5px;
+  color: #fff;
+  margin: 20px 0 0;
+  text-shadow: 0 6px 20px rgba(120, 30, 80, 0.22);
+}
+
+.sub {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 600;
+  margin: 20px 0 0;
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.trust {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 11px 15px;
+}
+
+.trustText {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.phoneCol {
+  flex: 0 0 auto;
+  margin: 0 auto;
+}
+
+.wave {
+  display: block;
+  width: 100%;
+  height: 64px;
+  margin-bottom: -2px;
+}
+
+/* Phone screen internals */
+.screenHeadName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.streakPill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 6px 11px;
+  box-shadow: 0 5px 13px rgba(42, 33, 64, 0.08);
+}
+
+.greenCard {
+  border-radius: 26px;
+  background: var(--grad-mint);
+  margin-top: 14px;
+  padding: 12px 14px 18px;
+  box-shadow: 0 14px 28px rgba(33, 201, 151, 0.3);
+}
+
+.tile {
+  flex: 1;
+  background: #fff;
+  border-radius: 17px;
+  padding: 12px 6px;
+  text-align: center;
+  box-shadow: 0 5px 13px rgba(42, 33, 64, 0.06);
+}
+
+.tileNum {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.tileLabel {
+  font-size: 10px;
+  color: var(--color-muted-light);
+  font-weight: 700;
+}
+
+@media (max-width: 360px) {
+  .phoneCol {
+    transform: scale(0.86);
+    transform-origin: top center;
+    margin-bottom: -84px;
+  }
+}

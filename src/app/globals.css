@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   Bedly design tokens — exact values from the handoff (§7).
+   Colors / fonts / eases / shadows / radii live in @theme so they double as
+   Tailwind utilities *and* CSS custom properties (var(--color-*) etc.).
+   Gradients (not a Tailwind namespace) live in :root below.
+   ========================================================================== */
+@theme {
+  /* Brand colors */
+  --color-ink: #2a2140;
+  --color-cream: #fff3ea;
+  --color-card: #ffffff;
+  --color-mascot-ink: #3a2a4a;
+
+  --color-coral: #ff6f5e;
+  --color-coral-pressed: #ff5e4a;
+  --color-coral-deep: #ff6a4a;
+  --color-sunshine: #ffcb2d;
+  --color-grape: #9b5de5;
+  --color-grape-2: #8e5be0;
+  --color-mint: #21c997;
+  --color-mint-2: #1fbf8e;
+  --color-sky: #4cc9f0;
+  --color-sky-2: #34aee0;
+  --color-pink: #ff5da2;
+  --color-pink-soft: #ff9db1;
+  --color-dark-ui: #16121f;
+
+  /* Greys.  --muted / --muted-light are kept at EXACT spec values for large or
+     decorative text; --muted-body is the AA-safe (≥4.5:1 on cream and white)
+     replacement used for body-sized running copy and real captions. */
+  --color-muted: #857b95;
+  --color-muted-light: #9a90a8;
+  --color-muted-body: #6e6483;
+  --color-nav-grey: #6b6280;
+  --color-legal-body: #4a4360;
+
+  --color-hairline: #f1e9ef;
+  --color-features-bg: #fff7f2;
+  --color-watermark: #f0e7ee;
+
+  /* Fonts (the next/font variables are injected on <html>) */
+  --font-display: var(--font-fredoka), "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-nunito), "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  /* Easing — strong custom curves (Emil): UI transitions, not the linear defaults */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* Shadows */
+  --shadow-card: 0 12px 30px rgba(42, 33, 64, 0.07);
+  --shadow-soft: 0 6px 16px rgba(42, 33, 64, 0.06);
+  --shadow-stat: 0 14px 34px rgba(42, 33, 64, 0.08);
+}
+
+:root {
+  /* Signature sunset gradient + the per-section position variants */
+  --grad-sunset: radial-gradient(125% 90% at 50% -10%, #ff8a6b 0%, #ff6f8e 46%, #9f6be6 100%);
+  --grad-sunset-mark: radial-gradient(125% 100% at 50% 0%, #ff8a6b 0%, #ff6f8e 48%, #9f6be6 100%);
+  --grad-sunset-pro: radial-gradient(120% 90% at 50% 0%, #ff8a6b 0%, #ff6f8e 52%, #9f6be6 100%);
+  --grad-sunset-cta: radial-gradient(120% 120% at 50% 0%, #ff8a6b 0%, #ff6f8e 48%, #9f6be6 100%);
+  --grad-sunset-support: radial-gradient(125% 110% at 50% -20%, #ff8a6b 0%, #ff6f8e 48%, #9f6be6 100%);
+  --grad-sunset-stuck: radial-gradient(120% 130% at 50% 0%, #ff8a6b 0%, #ff6f8e 50%, #9f6be6 100%);
+
+  /* Solid-tile linear gradients */
+  --grad-coral: linear-gradient(160deg, #ff8466, #ff5e4a);
+  --grad-coral-soft: linear-gradient(160deg, #ff8466, #ff6f5e);
+  --grad-mint: linear-gradient(160deg, #3fd8a0, #21c997);
+  --grad-mint-scan: radial-gradient(120% 70% at 50% 0%, #3fd8a0 0%, #21c997 45%, #0fa9c9 100%);
+  --grad-grape: linear-gradient(160deg, #a87bea, #8e5be0);
+  --grad-sky: linear-gradient(160deg, #5bcbf2, #34aee0);
+  --grad-gold: linear-gradient(160deg, #ffd45e, #ffb020);
+  --grad-pink: linear-gradient(160deg, #ff93bc, #ff5d98);
+
+  /* Layout */
+  --container: 1180px;
+  --container-text: 760px;
+  --container-stats: 1100px;
+  --side-pad: 28px;
+
+  /* Sticky-nav height — used for scroll-margin so anchors aren't hidden */
+  --nav-h: 77px;
+}
+
+/* ============================================================================
+   Base
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Headings default to the display face + balanced wrapping */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Accessible, on-brand focus ring */
+:focus-visible {
+  outline: 3px solid var(--color-grape);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(255, 111, 94, 0.22);
+}
+
+a {
+  color: inherit;
+}
+
+/* Press feedback for any element opting in (buttons, CTAs, nav links) */
+.press {
+  transition: transform 160ms var(--ease-out);
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* 4-point sparkle star (decorative accent) */
+.sparkle {
+  clip-path: polygon(
+    50% 0,
+    61% 39%,
+    100% 50%,
+    61% 61%,
+    50% 100%,
+    39% 61%,
+    0 50%,
+    39% 39%
+  );
+}
+
+/* ============================================================================
+   Keyframes — ambient marketing motion (transform/opacity only, off main thread)
+   ========================================================================== */
+@keyframes lpFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes lpFloatSm {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+@keyframes lpTwinkle {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(90deg) scale(1.25);
+    opacity: 1;
+  }
+}
+@keyframes lpCtaPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.anim-float {
+  animation: lpFloat 6s ease-in-out infinite;
+}
+.anim-float-sm {
+  animation: lpFloatSm 4.5s ease-in-out infinite;
+}
+.anim-twinkle {
+  animation: lpTwinkle 3s ease-in-out infinite;
+}
+.anim-cta-pulse {
+  animation: lpCtaPulse 2.8s ease-in-out infinite;
+}
+
+/* ============================================================================
+   Reduced motion — disable all decorative movement, keep content visible
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

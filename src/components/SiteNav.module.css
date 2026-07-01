@@ -1,0 +1,152 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 243, 234, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(42, 33, 64, 0.06);
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 16px var(--side-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--color-ink);
+}
+
+.desktop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.link {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-nav-grey);
+  text-decoration: none;
+  /* Stretch each link to the bar's existing height (set by the 44px Download
+     button) so the hit area reaches ~44px without growing the nav or nudging
+     the text — the visible bar and 30px link spacing are unchanged. */
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  transition: color 160ms var(--ease-out);
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 14px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(255, 111, 94, 0.32);
+}
+
+/* Mobile menu */
+.mobileWrap {
+  position: relative;
+  display: none;
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: min(78vw, 280px);
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(42, 33, 64, 0.18);
+  border: 1px solid var(--color-hairline);
+  overflow: hidden;
+  transform-origin: top right;
+}
+
+.panelInner {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.panelLink {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-nav-grey);
+  text-decoration: none;
+  padding: 13px 14px;
+  border-radius: 12px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  transition: background 160ms var(--ease-out);
+}
+
+.panelCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(255, 111, 94, 0.32);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--color-ink);
+  }
+  .panelLink:hover {
+    background: var(--color-cream);
+  }
+}
+
+/* Collapse to hamburger below 720px */
+@media (max-width: 720px) {
+  .desktop {
+    display: none;
+  }
+  .mobileWrap {
+    display: block;
+  }
+}

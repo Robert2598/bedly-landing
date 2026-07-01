@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@keyframes bbBob{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-7px) rotate(.5deg)}}
+@keyframes bbBobFast{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes bbBlink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+@keyframes bbTwinkle{0%,100%{transform:rotate(0deg) scale(.85);opacity:.45}50%{transform:rotate(90deg) scale(1.3);opacity:1}}
+@keyframes bbDrip{0%{transform:rotate(45deg) translateY(0);opacity:0}25%{opacity:1}100%{transform:rotate(45deg) translateY(18px);opacity:0}}
+@keyframes bbFloatZ{0%{transform:translateY(0) scale(.7);opacity:0}30%{opacity:.9}100%{transform:translateY(-26px) scale(1.1);opacity:0}}
+</style>
+</helmet>
+<div style="width:220px;height:190px;position:relative;font-family:'Fredoka',sans-serif;animation:{{ bobAnim }} 3.2s ease-in-out infinite;">
+  <div style="position:absolute;left:34px;bottom:2px;width:152px;height:18px;background:rgba(58,42,74,.14);border-radius:50%;filter:blur(3px);"></div>
+
+  <sc-if value="{{ isEcstatic }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:10px;top:20px;width:18px;height:18px;background:#FFCB2D;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:bbTwinkle 1.6s ease-in-out infinite;"></div>
+    <div style="position:absolute;right:14px;top:30px;width:13px;height:13px;background:#FF5DA2;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:bbTwinkle 1.9s .3s ease-in-out infinite;"></div>
+    <div style="position:absolute;right:42px;top:4px;width:11px;height:11px;background:#4CC9F0;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:bbTwinkle 1.4s .6s ease-in-out infinite;"></div>
+    <div style="position:absolute;left:38px;top:6px;width:10px;height:10px;background:#21C997;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:bbTwinkle 1.7s .15s ease-in-out infinite;"></div>
+  </sc-if>
+
+  <sc-if value="{{ isSad }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;right:22px;top:18px;font-size:15px;font-weight:600;color:#9b94ab;animation:bbFloatZ 2.8s ease-in-out infinite;">z</div>
+    <div style="position:absolute;right:14px;top:30px;font-size:11px;font-weight:600;color:#b7b1c4;animation:bbFloatZ 2.8s .9s ease-in-out infinite;">z</div>
+  </sc-if>
+
+  <div style="position:absolute;left:20px;top:58px;width:180px;height:108px;border-radius:32px;background:{{ duvetGrad }};box-shadow:0 14px 26px rgba(58,42,74,.2),inset 0 -10px 18px rgba(0,0,0,.16),inset 0 9px 16px rgba(255,255,255,.42);"></div>
+  <div style="position:absolute;left:20px;top:58px;width:180px;height:30px;border-radius:32px 32px 16px 16px;background:linear-gradient(#ffffff,#fff0e6);box-shadow:0 3px 0 rgba(214,64,40,.1);"></div>
+
+  <sc-if value="{{ isSad }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:48px;top:28px;width:24px;height:7px;border-radius:6px;background:#3A2A4A;transform:rotate(16deg);"></div>
+    <div style="position:absolute;right:48px;top:28px;width:24px;height:7px;border-radius:6px;background:#3A2A4A;transform:rotate(-16deg);"></div>
+  </sc-if>
+
+  <div style="position:absolute;left:42px;top:34px;width:54px;height:48px;background:#fff;border-radius:20px;transform:rotate(-5deg);box-shadow:0 7px 11px rgba(58,42,74,.13);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+    <sc-if value="{{ roundEyes }}" hint-placeholder-val="{{ true }}">
+      <div style="position:relative;width:19px;height:21px;background:#3A2A4A;border-radius:50%;animation:bbBlink 4.2s ease-in-out infinite;">
+        <div style="position:absolute;top:3px;right:3px;width:6px;height:6px;background:#fff;border-radius:50%;"></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isEcstatic }}" hint-placeholder-val="{{ false }}">
+      <div style="width:26px;height:14px;border-top:5px solid #3A2A4A;border-left:5px solid #3A2A4A;border-right:5px solid #3A2A4A;border-radius:14px 14px 0 0;border-bottom:0;"></div>
+    </sc-if>
+  </div>
+
+  <div style="position:absolute;right:42px;top:34px;width:54px;height:48px;background:#fff;border-radius:20px;transform:rotate(5deg);box-shadow:0 7px 11px rgba(58,42,74,.13);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+    <sc-if value="{{ roundEyes }}" hint-placeholder-val="{{ true }}">
+      <div style="position:relative;width:19px;height:21px;background:#3A2A4A;border-radius:50%;animation:bbBlink 4.2s .1s ease-in-out infinite;">
+        <div style="position:absolute;top:3px;right:3px;width:6px;height:6px;background:#fff;border-radius:50%;"></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isEcstatic }}" hint-placeholder-val="{{ false }}">
+      <div style="width:26px;height:14px;border-top:5px solid #3A2A4A;border-left:5px solid #3A2A4A;border-right:5px solid #3A2A4A;border-radius:14px 14px 0 0;border-bottom:0;"></div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ showCheeks }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;left:40px;top:98px;width:22px;height:13px;background:#FF9DB1;border-radius:50%;opacity:.85;filter:blur(.4px);"></div>
+    <div style="position:absolute;right:40px;top:98px;width:22px;height:13px;background:#FF9DB1;border-radius:50%;opacity:.85;filter:blur(.4px);"></div>
+  </sc-if>
+
+  <sc-if value="{{ isHappy }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;left:89px;top:100px;width:42px;height:21px;border:6px solid #3A2A4A;border-top:0;border-bottom-left-radius:42px;border-bottom-right-radius:42px;"></div>
+  </sc-if>
+  <sc-if value="{{ isSad }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:93px;top:114px;width:34px;height:17px;border:5px solid #3A2A4A;border-bottom:0;border-top-left-radius:34px;border-top-right-radius:34px;"></div>
+  </sc-if>
+  <sc-if value="{{ isEcstatic }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:88px;top:98px;width:44px;height:34px;background:#3A2A4A;border-radius:10px 10px 24px 24px;overflow:hidden;">
+      <div style="position:absolute;bottom:0;left:9px;width:26px;height:16px;background:#FF6E8A;border-radius:13px 13px 9px 9px;"></div>
+      <div style="position:absolute;top:0;left:4px;width:36px;height:6px;background:#fff;border-radius:0 0 6px 6px;"></div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isSad }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;right:46px;top:80px;width:11px;height:14px;background:linear-gradient(#bfe9ff,#79c6f0);border-radius:50% 50% 50% 0;transform:rotate(45deg);animation:bbDrip 2.4s ease-in-out infinite;"></div>
+  </sc-if>
+
+  <sc-if value="{{ shades }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:42px;left:36px;right:36px;height:42px;z-index:5;">
+      <div style="position:absolute;left:0;top:2px;width:64px;height:40px;background:linear-gradient(160deg,#403A57,#16121F);border-radius:15px;transform:rotate(-5deg);box-shadow:inset 0 4px 0 rgba(255,255,255,.22);"></div>
+      <div style="position:absolute;right:0;top:2px;width:64px;height:40px;background:linear-gradient(160deg,#403A57,#16121F);border-radius:15px;transform:rotate(5deg);box-shadow:inset 0 4px 0 rgba(255,255,255,.22);"></div>
+      <div style="position:absolute;left:50%;top:13px;transform:translateX(-50%);width:26px;height:7px;background:#16121F;border-radius:4px;"></div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hatCrown }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:-2px;left:50%;transform:translateX(-50%) rotate(-4deg);width:88px;height:52px;z-index:6;">
+      <div style="width:100%;height:100%;background:linear-gradient(160deg,#FFE685,#FFB726);clip-path:polygon(0 100%,0 42%,18% 64%,33% 8%,50% 50%,67% 8%,82% 64%,100% 42%,100% 100%);filter:drop-shadow(0 4px 6px rgba(214,150,20,.4));"></div>
+      <div style="position:absolute;left:9px;bottom:7px;width:8px;height:8px;border-radius:50%;background:#FF5DA2;"></div>
+      <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:7px;width:8px;height:8px;border-radius:50%;background:#4CC9F0;"></div>
+      <div style="position:absolute;right:9px;bottom:7px;width:8px;height:8px;border-radius:50%;background:#21C997;"></div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hatParty }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:-46px;left:50%;transform:translateX(-50%) rotate(9deg);width:60px;height:80px;z-index:6;">
+      <div style="width:100%;height:100%;background:repeating-linear-gradient(118deg,#FF6F5E,#FF6F5E 12px,#FFCB2D 12px,#FFCB2D 24px);clip-path:polygon(50% 0,100% 100%,0 100%);filter:drop-shadow(0 4px 5px rgba(58,42,74,.18));"></div>
+      <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:17px;height:17px;border-radius:50%;background:#9B5DE5;"></div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hatNightcap }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:-36px;left:28px;transform:rotate(11deg);width:88px;height:92px;z-index:6;">
+      <div style="position:absolute;bottom:14px;left:0;width:100%;height:76px;background:linear-gradient(160deg,#8A6BEA,#5B45D6);clip-path:polygon(6% 100%,94% 100%,74% 0);"></div>
+      <div style="position:absolute;bottom:4px;left:-3px;width:94px;height:22px;background:#fff;border-radius:12px;box-shadow:0 3px 6px rgba(58,42,74,.12);"></div>
+      <div style="position:absolute;top:-7px;left:58px;width:21px;height:21px;border-radius:50%;background:#fff;box-shadow:0 3px 5px rgba(58,42,74,.14);"></div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:240,&quot;height&quot;:210},&quot;mood&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;happy&quot;,&quot;sad&quot;,&quot;ecstatic&quot;],&quot;default&quot;:&quot;happy&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;duvet&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;coral&quot;,&quot;mint&quot;,&quot;grape&quot;,&quot;sky&quot;,&quot;pink&quot;,&quot;gold&quot;],&quot;default&quot;:&quot;coral&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;hat&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;none&quot;,&quot;crown&quot;,&quot;nightcap&quot;,&quot;party&quot;],&quot;default&quot;:&quot;none&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;shades&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const m = this.props.mood || 'happy';
+    const duvets = {
+      coral: 'linear-gradient(160deg,#FF8466,#FF6A4A)',
+      mint: 'linear-gradient(160deg,#43D6A0,#1FBF8E)',
+      grape: 'linear-gradient(160deg,#A87BEA,#8E5BE0)',
+      sky: 'linear-gradient(160deg,#5BCBF2,#34AEE0)',
+      pink: 'linear-gradient(160deg,#FF93BC,#FF5D98)',
+      gold: 'linear-gradient(160deg,#FFD45E,#FFB020)',
+    };
+    const hat = this.props.hat || 'none';
+    return {
+      isHappy: m === 'happy',
+      isSad: m === 'sad',
+      isEcstatic: m === 'ecstatic',
+      roundEyes: m === 'happy' || m === 'sad',
+      showCheeks: m === 'happy' || m === 'ecstatic',
+      bobAnim: m === 'ecstatic' ? 'bbBobFast' : 'bbBob',
+      duvetGrad: duvets[this.props.duvet] || duvets.coral,
+      hatCrown: hat === 'crown',
+      hatNightcap: hat === 'nightcap',
+      hatParty: hat === 'party',
+      shades: this.props.shades === true || this.props.shades === 'true',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+.footer {
+  background: var(--color-dark-ui);
+  color: #fff;
+}
+
+.top {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 56px var(--side-pad) 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.brandCol {
+  max-width: 300px;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.blurb {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  line-height: 1.55;
+  margin: 16px 0 0;
+}
+
+.signature {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+  margin-top: 18px;
+}
+
+.cols {
+  display: flex;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+
+.colHead {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.colLink {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 600;
+  width: fit-content;
+  transition: color 160ms var(--ease-out);
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 20px var(--side-pad);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fine {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .colLink:hover {
+    color: #fff;
+  }
+}

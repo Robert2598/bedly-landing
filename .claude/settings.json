@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(pnpm -v)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" --max-time 8 https://registry.npmjs.org/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" --max-time 8 \"https://fonts.googleapis.com/css2?family=Fredoka\")",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const p=require\\('puppeteer'\\); console.log\\('chromium path:', p.executablePath\\(\\)\\); const fs=require\\('fs'\\); console.log\\('exists:', fs.existsSync\\(p.executablePath\\(\\)\\)\\)\")",
+      "Bash(node -e \"const p=require\\('puppeteer'\\); p.executablePath && \\(async\\(\\)=>{try{const b=require\\('@puppeteer/browsers'\\);}catch\\(e\\){}; }\\)\\(\\); \\(async\\(\\)=>{ const ep = await p.executablePath\\(\\); const fs=require\\('fs'\\); console.log\\('path:', ep, 'exists:', fs.existsSync\\(ep\\)\\); }\\)\\(\\)\")",
+      "Read(//Users/robertrotariu/.cache/puppeteer/**)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/robots.txt)",
+      "Bash(curl -s http://localhost:3000/sitemap.xml)",
+      "Bash(curl -s http://localhost:3000/manifest.webmanifest)",
+      "Bash(curl -s -o /dev/null -w \"og status=%{http_code} type=%{content_type} size=%{size_download}\\\\n\" http://localhost:3000/opengraph-image)",
+      "Bash(node -e \"let s='';process.stdin.on\\('data',d=>s+=d\\).on\\('end',\\(\\)=>{s.trim\\(\\).split\\('\\\\n'\\).forEach\\(\\(l,i\\)=>{try{console.log\\('block',i,'OK:',JSON.stringify\\(JSON.parse\\(l\\)\\).slice\\(0,90\\)\\)}catch\\(e\\){console.log\\('block',i,'INVALID',e.message\\)}}\\)}\\)\")",
+      "Bash(curl -s http://localhost:3000/support)",
+      "Bash(node -e \"let s='';process.stdin.on\\('data',d=>s+=d\\).on\\('end',\\(\\)=>{const m=s.match\\(/\\\\{\\\\\"@context[\\\\s\\\\S]*FAQPage[\\\\s\\\\S]*\\\\}\\\\s*<\\\\/script>/\\);}\\)\")",
+      "Bash(curl -s http://localhost:3000/opengraph-image -o /tmp/bedly-og.png)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(python3 /tmp/contrast.py)",
+      "Bash(xargs ls -la)",
+      "Bash(node -e ' *)",
+      "Bash(sed -n '/\\\\.link {/,/^}/p' /Users/robertrotariu/Documents/bedly-landing/src/components/SiteNav.module.css)",
+      "Bash(sed -n '/\\\\.toggleBtn {/,/^}/p' /Users/robertrotariu/Documents/bedly-landing/src/components/sections/Pricing.module.css)",
+      "Bash(curl -s http://localhost:3000/terms)",
+      "Bash(curl -s --retry 20 --retry-delay 1 --retry-connrefused -o /dev/null -w \"up:%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(node scripts/interact.mjs)",
+      "Bash(grep -oE 'SAVE 3[0-9]%|\\\\$30|\\\\$3\\\\.99|just \\\\$2\\\\.50/mo, billed yearly')",
+      "Bash(node scripts/crop.mjs)"
+    ]
+  }
+}

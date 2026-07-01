@@ -1,0 +1,52 @@
+.section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 90px var(--side-pad);
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+  background: var(--grad-sunset-cta);
+  padding: 60px 32px;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(159, 107, 230, 0.34);
+}
+
+.mascot {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(30px, 4.4vw, 46px);
+  letter-spacing: -1px;
+  color: #fff;
+  margin: 6px 0 0;
+  text-shadow: 0 6px 18px rgba(120, 30, 80, 0.24);
+}
+
+.sub {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.94);
+  font-weight: 600;
+  margin: 14px auto 0;
+  max-width: 440px;
+  line-height: 1.5;
+}
+
+.btnRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.fine {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 16px 0 0;
+}

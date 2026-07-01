@@ -1,0 +1,486 @@
+/* BedBuddy — faithful CSS-art port of design-files/BedBuddy.dc.html.
+   Authored in a fixed 220×190 box; everything is absolutely positioned against
+   it. Rendered at smaller sizes via the scale-wrapper technique (see .tsx). */
+
+.outer {
+  position: relative;
+  flex: none;
+}
+
+.scaler {
+  transform-origin: top left;
+  width: 220px;
+  height: 190px;
+}
+
+.box {
+  position: absolute;
+  inset: 0;
+  width: 220px;
+  height: 190px;
+  font-family: var(--font-display);
+}
+
+.bob {
+  animation: bbBob 3.2s ease-in-out infinite;
+}
+.bobFast {
+  animation: bbBobFast 3.2s ease-in-out infinite;
+}
+
+.shadow {
+  position: absolute;
+  left: 34px;
+  bottom: 2px;
+  width: 152px;
+  height: 18px;
+  background: rgba(58, 42, 74, 0.14);
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+/* Ecstatic sparkles */
+.spark {
+  position: absolute;
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  animation: bbTwinkle 1.6s ease-in-out infinite;
+}
+.spark1 {
+  left: 10px;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  background: #ffcb2d;
+}
+.spark2 {
+  right: 14px;
+  top: 30px;
+  width: 13px;
+  height: 13px;
+  background: #ff5da2;
+  animation-duration: 1.9s;
+  animation-delay: 0.3s;
+}
+.spark3 {
+  right: 42px;
+  top: 4px;
+  width: 11px;
+  height: 11px;
+  background: #4cc9f0;
+  animation-duration: 1.4s;
+  animation-delay: 0.6s;
+}
+.spark4 {
+  left: 38px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background: #21c997;
+  animation-duration: 1.7s;
+  animation-delay: 0.15s;
+}
+
+/* Sad "z z" */
+.zed {
+  position: absolute;
+  font-weight: 600;
+  animation: bbFloatZ 2.8s ease-in-out infinite;
+}
+.zed1 {
+  right: 22px;
+  top: 18px;
+  font-size: 15px;
+  color: #9b94ab;
+}
+.zed2 {
+  right: 14px;
+  top: 30px;
+  font-size: 11px;
+  color: #b7b1c4;
+  animation-delay: 0.9s;
+}
+
+/* Duvet */
+.duvet {
+  position: absolute;
+  left: 20px;
+  top: 58px;
+  width: 180px;
+  height: 108px;
+  border-radius: 32px;
+  box-shadow:
+    0 14px 26px rgba(58, 42, 74, 0.2),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.16),
+    inset 0 9px 16px rgba(255, 255, 255, 0.42);
+}
+.sheet {
+  position: absolute;
+  left: 20px;
+  top: 58px;
+  width: 180px;
+  height: 30px;
+  border-radius: 32px 32px 16px 16px;
+  background: linear-gradient(#ffffff, #fff0e6);
+  box-shadow: 0 3px 0 rgba(214, 64, 40, 0.1);
+}
+
+/* Sad brows */
+.brow {
+  position: absolute;
+  top: 28px;
+  width: 24px;
+  height: 7px;
+  border-radius: 6px;
+  background: #3a2a4a;
+}
+.browL {
+  left: 48px;
+  transform: rotate(16deg);
+}
+.browR {
+  right: 48px;
+  transform: rotate(-16deg);
+}
+
+/* Eye sockets */
+.eye {
+  position: absolute;
+  top: 34px;
+  width: 54px;
+  height: 48px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 7px 11px rgba(58, 42, 74, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.eyeL {
+  left: 42px;
+  transform: rotate(-5deg);
+}
+.eyeR {
+  right: 42px;
+  transform: rotate(5deg);
+}
+
+.pupil {
+  position: relative;
+  width: 19px;
+  height: 21px;
+  background: #3a2a4a;
+  border-radius: 50%;
+  animation: bbBlink 4.2s ease-in-out infinite;
+}
+.pupilR {
+  animation-delay: 0.1s;
+}
+.glint {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.arcEye {
+  width: 26px;
+  height: 14px;
+  border-top: 5px solid #3a2a4a;
+  border-left: 5px solid #3a2a4a;
+  border-right: 5px solid #3a2a4a;
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+}
+
+/* Cheeks */
+.cheek {
+  position: absolute;
+  top: 98px;
+  width: 22px;
+  height: 13px;
+  background: #ff9db1;
+  border-radius: 50%;
+  opacity: 0.85;
+  filter: blur(0.4px);
+}
+.cheekL {
+  left: 40px;
+}
+.cheekR {
+  right: 40px;
+}
+
+/* Mouths */
+.mouthHappy {
+  position: absolute;
+  left: 89px;
+  top: 100px;
+  width: 42px;
+  height: 21px;
+  border: 6px solid #3a2a4a;
+  border-top: 0;
+  border-bottom-left-radius: 42px;
+  border-bottom-right-radius: 42px;
+}
+.mouthSad {
+  position: absolute;
+  left: 93px;
+  top: 114px;
+  width: 34px;
+  height: 17px;
+  border: 5px solid #3a2a4a;
+  border-bottom: 0;
+  border-top-left-radius: 34px;
+  border-top-right-radius: 34px;
+}
+.mouthEcstatic {
+  position: absolute;
+  left: 88px;
+  top: 98px;
+  width: 44px;
+  height: 34px;
+  background: #3a2a4a;
+  border-radius: 10px 10px 24px 24px;
+  overflow: hidden;
+}
+.tongue {
+  position: absolute;
+  bottom: 0;
+  left: 9px;
+  width: 26px;
+  height: 16px;
+  background: #ff6e8a;
+  border-radius: 13px 13px 9px 9px;
+}
+.teeth {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 36px;
+  height: 6px;
+  background: #fff;
+  border-radius: 0 0 6px 6px;
+}
+
+/* Sad tear */
+.tear {
+  position: absolute;
+  right: 46px;
+  top: 80px;
+  width: 11px;
+  height: 14px;
+  background: linear-gradient(#bfe9ff, #79c6f0);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+  animation: bbDrip 2.4s ease-in-out infinite;
+}
+
+/* Shades */
+.shades {
+  position: absolute;
+  top: 42px;
+  left: 36px;
+  right: 36px;
+  height: 42px;
+  z-index: 5;
+}
+.lens {
+  position: absolute;
+  top: 2px;
+  width: 64px;
+  height: 40px;
+  background: linear-gradient(160deg, #403a57, #16121f);
+  border-radius: 15px;
+  box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.22);
+}
+.lensL {
+  left: 0;
+  transform: rotate(-5deg);
+}
+.lensR {
+  right: 0;
+  transform: rotate(5deg);
+}
+.bridge {
+  position: absolute;
+  left: 50%;
+  top: 13px;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 7px;
+  background: #16121f;
+  border-radius: 4px;
+}
+
+/* Hats */
+.hat {
+  position: absolute;
+  z-index: 6;
+}
+.crown {
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 88px;
+  height: 52px;
+}
+.crownBody {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #ffe685, #ffb726);
+  clip-path: polygon(0 100%, 0 42%, 18% 64%, 33% 8%, 50% 50%, 67% 8%, 82% 64%, 100% 42%, 100% 100%);
+  filter: drop-shadow(0 4px 6px rgba(214, 150, 20, 0.4));
+}
+.gem {
+  position: absolute;
+  bottom: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.gemL {
+  left: 9px;
+  background: #ff5da2;
+}
+.gemC {
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4cc9f0;
+}
+.gemR {
+  right: 9px;
+  background: #21c997;
+}
+
+.party {
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%) rotate(9deg);
+  width: 60px;
+  height: 80px;
+}
+.partyBody {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(118deg, #ff6f5e, #ff6f5e 12px, #ffcb2d 12px, #ffcb2d 24px);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(0 4px 5px rgba(58, 42, 74, 0.18));
+}
+.partyPom {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #9b5de5;
+}
+
+.nightcap {
+  top: -36px;
+  left: 28px;
+  transform: rotate(11deg);
+  width: 88px;
+  height: 92px;
+}
+.nightcapBody {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  background: linear-gradient(160deg, #8a6bea, #5b45d6);
+  clip-path: polygon(6% 100%, 94% 100%, 74% 0);
+}
+.nightcapBrim {
+  position: absolute;
+  bottom: 4px;
+  left: -3px;
+  width: 94px;
+  height: 22px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(58, 42, 74, 0.12);
+}
+.nightcapPom {
+  position: absolute;
+  top: -7px;
+  left: 58px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 3px 5px rgba(58, 42, 74, 0.14);
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────────────── */
+@keyframes bbBob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(0.5deg);
+  }
+}
+@keyframes bbBobFast {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+@keyframes bbBlink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.12);
+  }
+}
+@keyframes bbTwinkle {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(0.85);
+    opacity: 0.45;
+  }
+  50% {
+    transform: rotate(90deg) scale(1.3);
+    opacity: 1;
+  }
+}
+@keyframes bbDrip {
+  0% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateY(18px);
+    opacity: 0;
+  }
+}
+@keyframes bbFloatZ {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-26px) scale(1.1);
+    opacity: 0;
+  }
+}

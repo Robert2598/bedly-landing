@@ -1,0 +1,23 @@
+.bezel {
+  position: relative;
+  background: var(--color-dark-ui);
+  flex: none;
+}
+
+.notch {
+  position: absolute;
+  top: 21px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 24px;
+  background: #000;
+  border-radius: 13px;
+  z-index: 5;
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
