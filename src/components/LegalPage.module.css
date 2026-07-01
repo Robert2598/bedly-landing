@@ -134,16 +134,3 @@
   line-height: 1.55;
 }
 
-.footnote {
-  background: var(--color-features-bg);
-  border-radius: 18px;
-  padding: 16px 18px;
-  margin-top: 30px;
-  font-size: 13.5px;
-  color: var(--color-muted-body);
-  font-weight: 600;
-  line-height: 1.6;
-  display: flex;
-  gap: 7px;
-  align-items: flex-start;
-}

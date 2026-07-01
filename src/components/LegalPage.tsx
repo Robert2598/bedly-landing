@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Info } from "@phosphor-icons/react/dist/ssr";
 import type { Icon } from "@phosphor-icons/react";
 import { LegalNav, CrossLinks, type CrossLink } from "./LegalChrome";
 import styles from "./LegalPage.module.css";
@@ -87,20 +86,6 @@ export default function LegalPage({
                 )}
               </section>
             ))}
-
-            <div className={styles.footnote}>
-              <Info
-                weight="fill"
-                size={16}
-                color="var(--color-coral)"
-                style={{ flex: "none", marginTop: 1 }}
-                aria-hidden
-              />
-              <span>
-                This document is a starting draft for review by qualified legal counsel
-                before publication. It is not legal advice.
-              </span>
-            </div>
           </article>
 
           <CrossLinks links={crossLinks} />
