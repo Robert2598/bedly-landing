@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Crown } from "@phosphor-icons/react/dist/ssr";
 import SectionHeading from "@/components/SectionHeading";
+import { APP_STORE_URL } from "@/lib/config";
 import styles from "./Pricing.module.css";
 
 const FREE_FEATURES = [
@@ -82,7 +83,7 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
-          <a href="#get" className={`${styles.ctaFree} press`}>
+          <a href={APP_STORE_URL} className={`${styles.ctaFree} press`}>
             Download free
           </a>
         </div>
@@ -110,7 +111,7 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
-          <a href="#get" className={`${styles.ctaPro} press`}>
+          <a href={APP_STORE_URL} className={`${styles.ctaPro} press`}>
             Start 7-day free trial
           </a>
           <div className={styles.trialNote}>

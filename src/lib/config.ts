@@ -19,12 +19,16 @@ export const COPYRIGHT_YEAR = "2026";
 export const LAST_UPDATED = "30 June 2026";
 
 /**
- * The numeric App Store ID, once the app is published. While `null`, every
- * App Store download button points to {@link APP_STORE_URL} (a safe `#`
- * placeholder) and the Smart App Banner `apple-itunes-app` meta tag is omitted
- * entirely — keeping the site truthful until there is a real listing.
+ * The numeric App Store ID for the live listing. Every download CTA points to
+ * {@link APP_STORE_URL} and the Smart App Banner `apple-itunes-app` meta tag is
+ * emitted from this. If set back to `null`, the buttons fall back to the `#get`
+ * anchor and the banner is omitted (keeping the site truthful pre-launch).
+ *
+ * Region-agnostic form (`apps.apple.com/app/id<ID>`) is used deliberately: it
+ * redirects each visitor to their own local App Store storefront, rather than
+ * pinning everyone to the storefront in the pasted link (e.g. `/no/`).
  */
-export const APP_STORE_ID: string | null = null;
+export const APP_STORE_ID: string | null = "6757679277";
 
 export const APP_STORE_URL = APP_STORE_ID
   ? `https://apps.apple.com/app/id${APP_STORE_ID}`

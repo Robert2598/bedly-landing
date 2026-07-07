@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { List, X, AppleLogo } from "@phosphor-icons/react/dist/ssr";
+import { APP_STORE_URL } from "@/lib/config";
 import styles from "./SiteNav.module.css";
 
 export interface NavLink {
@@ -64,14 +65,15 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
               {l.label}
             </Link>
           ))}
-          <Link
-            href="#get"
+          <a
+            href={APP_STORE_URL}
             className={`${styles.panelCta} press`}
+            aria-label="Download Bedly on the App Store"
             onClick={() => setOpen(false)}
           >
             <AppleLogo weight="fill" size={17} aria-hidden />
             Download
-          </Link>
+          </a>
         </nav>
       </div>
     </div>

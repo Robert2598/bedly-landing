@@ -48,9 +48,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
   // Smart App Banner — emitted only once there is a real App Store listing.
-  ...(APP_STORE_ID
-    ? { appleWebApp: { capable: false }, itunes: { appId: APP_STORE_ID } }
-    : {}),
+  ...(APP_STORE_ID ? { itunes: { appId: APP_STORE_ID } } : {}),
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
